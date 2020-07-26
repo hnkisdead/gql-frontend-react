@@ -15,3 +15,7 @@
     npm run start
     ```
 1. Открываем [проект](http://localhost:3000/)
+1. Запускает генерацию типов по запросам и фрагментам 
+    ```bash
+    npm run apollo:codegen
+    ```

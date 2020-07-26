@@ -20,7 +20,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "apollo:generate": "apollo client:codegen --includes=src/**/*.tsx --target=typescript --tagName=gql --outputFlat=src/generated --watch",
+    "apollo:codegen": "apollo client:codegen --includes=src/**/*.tsx --target=typescript --tagName=gql --outputFlat=src/generated --watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
