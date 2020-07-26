@@ -19,6 +19,9 @@
     "noEmit": true,
     "jsx": "react"
   },
+  "exclude": [
+    "src/generated/globalTypes.ts"
+  ],
   "include": [
     "src"
   ]

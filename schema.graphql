@@ -1,0 +1,140 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type CreateProductData {
+  recordID: Int
+  record: Product
+  status: Status
+  error: CreateProductError
+}
+
+union CreateProductError = ProductAlreadyExistsError
+
+input CreateProductPayload {
+  name: String!
+  category: String!
+}
+
+input Filter {
+  id: IntegerFilter
+  name: StringFilter
+  category: StringFilter
+  OR: [Filter]
+  AND: [Filter]
+  NOT: Filter
+}
+
+input IntegerFilter {
+  exact: Int
+  gt: Int
+  gte: Int
+  lt: Int
+  lte: Int
+}
+
+type Mutation {
+  products: ProductsMutations
+}
+
+type Paginator {
+  numPages: Int!
+  count: Int!
+  perPage: Int!
+}
+
+type Product {
+  id: Int!
+  name: String!
+  category: String!
+  workstations: [Workstation!]!
+}
+
+type ProductAlreadyExistsError {
+  message: String
+}
+
+type ProductDoesntExistsError {
+  message: String
+}
+
+type ProductsMutations {
+  create(payload: CreateProductPayload!): CreateProductData
+  update(payload: UpdateProductPayload!): UpdateProductData
+}
+
+type ProductsPage {
+  objectList: [Product!]!
+  paginator: Paginator!
+  pageNumber: Int!
+}
+
+type Query {
+  tablet: [Tablet]
+  workstations: [Workstation]
+  products(page: Int!, perPage: Int!, sorters: [Sorter], filters: [Filter]): ProductsPage!
+  product(id: Int, name: String, category: String): Product
+  me: User
+}
+
+enum SortOrder {
+  ASC
+  DESC
+}
+
+enum SortableFields {
+  CATEGORY
+  ID
+  NAME
+}
+
+input Sorter {
+  field: SortableFields
+  order: SortOrder
+}
+
+enum Status {
+  ERROR
+  OK
+}
+
+input StringFilter {
+  exact: String
+  contains: String
+}
+
+type Tablet {
+  id: ID!
+  name: String!
+  workstations: [Workstation!]!
+}
+
+type UpdateProductData {
+  recordID: Int
+  record: Product
+  status: Status
+  error: UpdateProductError
+}
+
+union UpdateProductError = ProductDoesntExistsError
+
+input UpdateProductPayload {
+  id: Int!
+  name: String!
+  category: String!
+}
+
+type User {
+  id: Int!
+  username: String!
+  firstName: String!
+  lastName: String!
+}
+
+type Workstation {
+  id: ID!
+  name: String!
+  products: [Product!]!
+  tablets: [Tablet!]!
+}
