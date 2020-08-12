@@ -1,4 +1,3 @@
-"use strict";
 /* tslint:disable */
 /* eslint-disable */
 // @generated
@@ -9,4 +8,3 @@
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
-//# sourceMappingURL=globalTypes.js.map
