@@ -19,3 +19,13 @@
     ```bash
     npm run apollo:codegen
     ```
+   
+## GraphQL
+
+### Материалы
+
+1. https://www.youtube.com/watch?v=F4vHSHzpO1g&t=1358s
+2. https://www.youtube.com/watch?v=NnnvOPdstzg&t=1894s
+3. https://www.youtube.com/watch?v=VdoPraj0QqU&t=1192s
+4. https://www.youtube.com/watch?v=0bpZiMVJh14
+5. https://www.youtube.com/watch?v=ou0fEW1eRjc
